@@ -1,0 +1,691 @@
+/*
+Theme Name: geo_siak_portfolio
+Theme URI: 
+Author: babistsou
+Author URI: babistsou
+Description: 
+Requires at least: 5.3
+Tested up to: 5.7
+Requires PHP: 5.6
+Version: 1.3
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: twentytwentyone
+Tags: one-column, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready
+
+
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karma:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn&display=swap");
+
+:root {
+  --clr-primary: #fffdfb;
+  --clr-secondary: #2c2a2a;
+  --clr-third: rgb(235, 217, 114);
+  --clr-text-primary: #2c2a2a;
+  --clr-text-secondary: #a19b91;
+  --ff-title: "Prompt", sans-serif;
+  --ff-text: "Karma", serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--clr-primary);
+
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--clr-secondary);
+  border-radius: 10px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 785px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--ff-title);
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-text);
+  font-family: var(--ff-title);
+}
+
+ul {
+  list-style: none;
+}
+
+/* ############################### NAVIGATION menu ###################### */
+
+nav {
+  height: 6rem;
+  width: 100vw;
+  display: flex;
+  position: absolute;
+  z-index: 3;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  background: #000000fa;
+  width: 100%;
+  height: 100vh;
+  justify-content: space-evenly;
+  align-items: center;
+  clip-path: circle(50px at 90% -20%);
+  -webkit-clip-path: circle(50px at 90% -10%);
+  transition: all 1s ease-out;
+  pointer-events: none;
+}
+
+.nav-links.open {
+  clip-path: circle(1500px at 90% -10%);
+  -webkit-clip-path: circle(1500px at 90% -10%);
+  pointer-events: all;
+}
+
+.nav-links li:nth-child(1) {
+  transition: all 0.5s ease 0.2s;
+}
+.nav-links li:nth-child(2) {
+  transition: all 0.5s ease 0.4s;
+}
+.nav-links li:nth-child(3) {
+  transition: all 0.5s ease 0.6s;
+}
+.nav-links li:nth-child(4) {
+  transition: all 0.5s ease 0.7s;
+}
+.nav-links li:nth-child(5) {
+  transition: all 0.5s ease 0.8s;
+}
+.nav-links li:nth-child(6) {
+  transition: all 0.5s ease 0.9s;
+  margin: 0;
+}
+.nav-links li:nth-child(7) {
+  transition: all 0.5s ease 1s;
+  margin: 0;
+}
+li.fade {
+  opacity: 1;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  margin: 0 0.7vw;
+  color: #fff;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links li a::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 0%;
+  background-color: var(--clr-third);
+  position: absolute;
+  transition: all ease-in-out 250ms;
+  margin: 0 0 0 0%;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 3px;
+  background: var(--clr-secondary);
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+.hamburger {
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  right: 8%;
+  top: 50%;
+  transform: translate(-5%, -50%);
+  z-index: 2;
+  transition: all 0.7s ease;
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+  background-color: #fff;
+}
+.toggle .line2 {
+  transition: all 0.6s ease;
+  background-color: #fff;
+  width: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+  background-color: #fff;
+}
+
+/* ############################## HERO ############################# */
+.hero {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0 0 0 0;
+}
+
+.george {
+  color: var(--clr-third);
+}
+
+.headings {
+  margin: 20vh 0 0 0;
+  padding: 0 0.5rem;
+  color: var(--clr-text-primary);
+}
+
+.headings h1 {
+  font-size: 15vw;
+  line-height: 0.8;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.arrow {
+  display: block;
+  transform: scale(0.9);
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+}
+
+.yellow__heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 1rem auto;
+  height: auto;
+  padding: 1rem 0 0 0;
+  margin-right: 0;
+  border-radius: 5px;
+}
+
+.yellow__heading h2 {
+  line-height: 1;
+  font-weight: 200;
+  font-size: 4.5vw;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  margin: 50px 0 150px 0;
+  padding: 0 0.75rem;
+}
+
+.content p {
+  font-size: 1.1rem;
+  font-family: var(--ff-text);
+  font-weight: 100;
+  color: var(--clr-text-primary);
+  text-align: center;
+  padding: 1rem;
+  margin: 0;
+}
+
+.content .btn {
+  display: block;
+  width: 100%;
+  background: var(--clr-secondary);
+  color: var(--clr-third);
+  font-size: 3.85vw;
+  text-align: center;
+  font-weight: 500;
+  border-radius: 30px;
+  margin: 1rem 0 5rem 0;
+  padding: 0.2rem 0;
+  transition: 0.5s;
+}
+
+.content .btn:hover {
+  background: none;
+  border: 1px solid var(--clr-text-primary);
+  color: var(--clr-text-primary);
+  transition: 0.5s;
+}
+
+.vertical__social {
+  opacity: 0;
+}
+
+/* ###############   portfolio ################################## */
+
+.section__title {
+  font-size: 5vw;
+  text-align: center;
+  font-family: var(--ff-title);
+  color: var(--clr-text-primary);
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.project__number {
+  display: none;
+}
+
+.description {
+  visibility: hidden;
+}
+
+figcaption {
+  opacity: 0;
+  transition: 0.5s;
+  position: absolute;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  bottom: 0;
+  left: 0;
+  transition: 0.5s;
+}
+figcaption:hover {
+  position: absolute;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  bottom: 0;
+  left: 0;
+  transition: 0.5s;
+  opacity: 1;
+}
+
+figcaption h3 {
+  font-size: 2.5rem;
+}
+
+/* #############################################################   conntact card  ############################## */
+
+.contact__title span a {
+  color: var(--clr-third); /* Will override color (regardless of order) */
+
+  font-weight: 400;
+  transition: all 0.5s ease-in-out;
+}
+
+.contact__title span a:hover {
+  font-style: italic;
+  transition: all 0.5s ease-in-out;
+}
+
+.contact__title {
+  font-size: 10vw;
+  color: var(--clr-text-primary);
+  text-align: center;
+  line-height: 1;
+  margin-top: 10rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+}
+
+/* ##############################################################   contact   info ################################### */
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  margin-top: 100px;
+  color: var(--clr-text-primary);
+}
+
+.contact .info {
+  padding: 1em;
+}
+
+.media {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  padding: 0 0.5rem;
+}
+
+.media .social {
+  font-size: 2rem;
+  margin-left: 0;
+  padding: 0;
+}
+
+.media a {
+  margin-right: 0.5rem;
+}
+
+/*  #####################################################( MEDIA QUERIES ) ################################################ */
+
+@media screen and (min-width: 785px) {
+  .container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+  }
+
+  .arthro .perigrafi {
+    font-size: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  p {
+    font-size: 0.5rem;
+    font-family: var(--ff-text);
+    line-height: 1.2;
+  }
+
+  figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    margin: 0 auto;
+  }
+
+  /* ###################################### navigation bar ################################## */
+  nav {
+    width: 100%;
+    position: static;
+    height: 4rem;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 10;
+    padding: 0;
+  }
+
+  .nav-links {
+    height: 4rem;
+    width: 100%;
+    background: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    gap: 5rem;
+    color: var(--clr-text-primary);
+    z-index: 20;
+    clip-path: none;
+    transition: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-links.open {
+    display: none;
+  }
+
+  .nav-links li {
+    text-align: left;
+  }
+
+  .nav-links li a {
+    color: var(--clr-text-primary);
+    font-weight: 500;
+    margin: 0 0.5vw;
+    pointer-events: all;
+  }
+
+  .nav-links li a::after {
+    content: "";
+
+    height: 1px;
+    width: 0%;
+    background-color: var(--clr-text-primary);
+
+    transition: all ease-in-out 450ms;
+  }
+
+  .nav-links li a:hover::after {
+    width: 100%;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  /* ##################################### hero section ########################## */
+
+  figcaption {
+    visibility: hidden;
+  }
+
+  /* ###########################   contact ############################### */
+
+  #contact {
+    position: relative;
+    height: 100vh;
+  }
+
+  #contact::before {
+    content: "CONTACT";
+    font-size: 25vw;
+    font-family: var(--ff-title);
+    color: var(--clr-text-secondary);
+    position: absolute;
+    z-index: -5;
+    left: 0;
+    top: 0px;
+    letter-spacing: 0rem;
+    text-align: center;
+    opacity: 0.15;
+    overflow-x: hidden;
+  }
+
+  .contact {
+    width: 100%;
+    height: 80%;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .contact__title {
+    font-size: 5.5vw;
+    line-height: 1;
+    width: 50%;
+    margin: 0;
+    padding-left: 3rem;
+    text-align: left;
+    user-select: none;
+  }
+
+  .contact__title span a {
+    margin: 0;
+    color: var(--clr-third);
+    -webkit-text-stroke-width: 0;
+    font-weight: 400;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .contact__title span a:hover {
+    color: var(--clr-third); /* Will override color (regardless of order) */
+    transition: all 0.5s ease-in-out;
+  }
+
+  .right__stuff {
+    height: 50%;
+    font-size: 1vw;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .info .mail {
+    display: inline-block;
+    margin-left: 0;
+    padding-bottom: 0;
+    font-family: var(--ff-text);
+    letter-spacing: -2px;
+    color: var(--clr-text-primary);
+    font-size: 2.5vw;
+  }
+
+  .info .mail::after {
+    content: "";
+    display: block;
+    margin: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--clr-text-primary);
+    transition: 1s ease-in-out;
+  }
+
+  .info .mail:hover::after {
+    content: "";
+    display: block;
+    width: 0%;
+    background-color: transparent;
+    transition: 1s ease-in-out;
+  }
+
+  .info h3:first-of-type {
+    margin-top: 4rem;
+    padding: 0;
+    line-height: 2vw;
+    text-align: left;
+  }
+
+  .info i {
+    margin-right: 1rem;
+    text-align: left;
+  }
+
+  .media {
+    margin-top: 1vh;
+    margin-left: 0.5em;
+    justify-content: flex-start;
+    align-content: flex-start;
+    line-height: 1;
+    text-align: left;
+  }
+
+  .media a {
+    font-size: 1vw;
+    margin: 0 1.5vw;
+  }
+
+  .media a:hover {
+    color: var(--clr-third);
+    transition: 250ms ease-in-out;
+  }
+
+  .container::before {
+    animation: grain 8s steps(10) infinite;
+    background-image: url(/code/images/noise.png);
+    content: "";
+    height: 300%;
+    left: -50%;
+    opacity: 0.5;
+    position: fixed;
+    top: -100%;
+    width: 300%;
+  }
+
+  @keyframes grain {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    10% {
+      transform: translate(-5%, -10%);
+    }
+    20% {
+      transform: translate(-15%, 5%);
+    }
+    30% {
+      transform: translate(7%, -25%);
+    }
+    40% {
+      transform: translate(-5%, 25%);
+    }
+    50% {
+      transform: translate(-15%, 10%);
+    }
+    60% {
+      transform: translate(15%, 0%);
+    }
+    70% {
+      transform: translate(0%, 15%);
+    }
+    80% {
+      transform: translate(3%, 35%);
+    }
+    90% {
+      transform: translate(-10%, 10%);
+    }
+  }
+}
